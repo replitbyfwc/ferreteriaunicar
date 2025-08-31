@@ -1,0 +1,424 @@
+jQuery( document ).ready(function() {
+
+    /* ----------------->> AHORROS <<<------------------- */
+
+    jQuery( "#ahorros_calcular" ).click(function(e) {
+      e.preventDefault();
+      calcularAhorro();
+    });
+
+    jQuery( "#ahorros_limpiar" ).click(function() {
+      limpiarAhorros();
+    });
+
+    function calcularAhorro() {
+      var monto = jQuery('#form-field-ahorros_monto').val()
+      var plazo = jQuery('#form-field-ahorros_plazo').val();
+      var tasa = jQuery('#form-field-ahorros_tasa').val();
+
+      if(isNaN(monto) || isNaN(plazo) || isNaN(tasa)) {
+        console.log("Contiene letras");
+      } else {
+        var formula_monto = monto * ( (tasa / 100) / 12 ) * plazo;
+
+        if(formula_monto == 0) {
+          var formula_monto_mensual = 0;
+        } else {
+          var formula_monto_mensual = formula_monto / plazo;
+        }
+
+        var CRC = new Intl.NumberFormat('en-CR',{
+          style: 'currency',
+          currency: 'CRC',
+        });
+
+        var label_formula_monto = CRC.format(formula_monto.toFixed(2)); // -> Retorna: CRC XXX,XXX.XX
+        var label_formula_monto_mensual = CRC.format(formula_monto_mensual.toFixed(2));
+
+        // substring(4) elimina los 4 primeros caracteres del resultado "CRC ", retornando solamente el resultado con el formato en colones.
+        jQuery('#ahorros_resultado_monto').text("₡" + label_formula_monto.substring(4));
+        jQuery('#ahorros_resultado_porcentaje').text("₡" + label_formula_monto_mensual.substring(4));
+
+      }
+
+    }
+
+    function limpiarAhorros() {
+      jQuery('#form-field-ahorros_monto').val(0);
+      jQuery('#form-field-ahorros_plazo').val(0);
+      jQuery('#form-field-ahorros_tasa').val(0);
+      jQuery('#ahorros_resultado_monto').text("");
+      jQuery('#ahorros_resultado_porcentaje').text("");
+      jQuery('#ahorros_resultado_monto').text("₡0.00");
+      jQuery('#ahorros_resultado_porcentaje').text("₡0.00");
+    }
+
+    /* ----------------->> FIN AHORROS <<<------------------- */
+
+    /* ----------------->> CERTIFICADOS NORMALES <<<------------------- */
+    jQuery( "#certificados_normales_calcular" ).click(function(e) {
+      e.preventDefault();
+      calcularCertificadoNormal();
+    });
+
+    jQuery( "#certificados_normales_limpiar" ).click(function() {
+      limpiarCertificadoNormal();
+    });
+
+    function calcularCertificadoNormal() {
+      var monto = jQuery('#form-field-certificados_normales_monto').val()
+      var plazo = jQuery('#form-field-certificados_normales_plazo').val();
+      var tasa = jQuery('#form-field-certificados_normales_tasa').val();
+
+      if(isNaN(monto) || isNaN(plazo) || isNaN(tasa)) {
+        console.log("Contiene letras");
+      } else {
+        var formula_monto = monto * ( (tasa / 360) / 100 ) * plazo;
+
+        if(formula_monto == 0) {
+          var formula_monto_mensual = 0;
+        } else {
+          var formula_monto_mensual = formula_monto / plazo;
+        }
+
+        var CRC = new Intl.NumberFormat('en-CR',{
+          style: 'currency',
+          currency: 'CRC',
+        });
+
+        var label_formula_monto = CRC.format(formula_monto.toFixed(2)); // -> Retorna: CRC XXX,XXX.XX
+        //var label_formula_monto_mensual = CRC.format(formula_monto_mensual.toFixed(2));
+
+        // substring(4) elimina los 4 primeros caracteres del resultado "CRC ", retornando solamente el resultado con el formato en colones.
+        jQuery('#certificados_normales_resultado_monto').text("₡ " + label_formula_monto.substring(4));
+      }
+    }
+
+    function limpiarCertificadoNormal() {
+      jQuery('#form-field-certificados_normales_monto').val(0);
+      jQuery('#form-field-certificados_normales_plazo').val(0);
+      jQuery('#form-field-certificados_normales_tasa').val(0);
+      jQuery('#certificados_normales_resultado_monto').text("");
+      jQuery('#certificados_normales_resultado_monto').text("₡0.00");
+    }
+
+    /* ----------------->> FIN CERTIFICADOS NORMALES <<<------------------- */
+
+    /* ----------------->> CERTIFICADOS CAPITALIZABLES <<<------------------- */
+    jQuery( "#certificados_capi_calcular" ).click(function(e) {
+      e.preventDefault();
+      calcularCertificadoCapitalizable();
+    });
+
+    jQuery( "#certificados_capi_limpiar" ).click(function() {
+      limpiarCertificadoCapitalizable();
+    });
+
+    function calcularCertificadoCapitalizable() {
+      var monto = jQuery('#form-field-certificados_capi_monto').val();
+      var plazo = jQuery('#form-field-certificados_capi_plazo').val();
+      var tasa = jQuery('#form-field-certificados_capi_tasa').val();
+
+      if(isNaN(monto) || isNaN(plazo) || isNaN(tasa)) {
+        console.log("Contiene letras");
+      } else {
+        if(plazo >= 3) {
+          var formula_final = monto * ( 1 + ( tasa / 12 / 100 ) ) ** plazo
+
+          var CRC = new Intl.NumberFormat('en-CR',{
+            style: 'currency',
+            currency: 'CRC',
+          });
+
+          var label_formula_monto = CRC.format(formula_final.toFixed(2));
+          jQuery('#certificados_capi_resultado_monto').text("₡ " + label_formula_monto.substring(4));
+        } else {
+          console.log("El plazo debe ser mayor a 3 meses");
+        }
+      }
+    }
+
+    function limpiarCertificadoCapitalizable() {
+      jQuery('#form-field-certificados_capi_monto').val(0);
+      jQuery('#form-field-certificados_capi_plazo').val(0);
+      jQuery('#form-field-certificados_capi_tasa').val(0);
+      jQuery('#certificados_capi_resultado_monto').text("");
+      jQuery('#certificados_capi_resultado_monto').text("₡0.00");
+    }
+    /* ----------------->> FIN CERTIFICADOS CAPITALIZABLES <<<------------------- */
+
+    /* ----------------->> CRÉDITOS EN DÓLARES <<<------------------- */
+    jQuery( "#credito_dolares_calcular" ).click(function(e) {
+      e.preventDefault();
+      var monto = jQuery('#form-field-credito_dolares_monto').val();
+      var plazo = jQuery('#form-field-credito_dolares_plazo').val();
+      var tasa = jQuery('#form-field-credito_dolares_tasa').val();
+      var result = calcularCreditoDolares(tasa/1200 , plazo , -monto);
+      console.log(result);
+      jQuery('#credito_dolares_resultado_monto').text(result);
+    });
+
+    jQuery( "#credito_dolares_limpiar" ).click(function() {
+      limpiarCreditoDolares();
+    });
+
+    function calcularCreditoDolares(ir, np, pv) {
+
+      /*
+        * ir   - interest rate per month
+        * np   - number of periods (months)
+        * pv   - present value
+      */
+
+      if(isNaN(ir) || isNaN(np) || isNaN(pv)) {
+        console.log("Contiene letras");
+      } else {
+        if(np >= 3) {
+            var pmt, pvif;
+
+          if (ir === 0) return -(pv)/np;
+          pvif = Math.pow(1 + ir, np);
+          pmt = - ir * pv * (pvif) / (pvif - 1);
+
+          var result = pmt;
+
+          var USD = new Intl.NumberFormat('en-US',{
+            style: 'currency',
+            currency: 'USD',
+          });
+
+          return USD.format(result.toFixed(2))
+
+        } else {
+          console.log("El plazo debe ser mayor a 3 meses");
+        }
+      }
+    }
+
+    function limpiarCreditoDolares() {
+      jQuery('#form-field-credito_dolares_monto').val(0);
+      jQuery('#form-field-credito_dolares_plazo').val(0);
+      jQuery('#form-field-credito_dolares_tasa').val(0);
+      jQuery('#credito_dolares_resultado_monto').text("");
+      jQuery('#credito_dolares_resultado_monto').text("$0.00");
+    }
+    /* ----------------->> FIN CRÉDITOS EN DÓLARES <<<------------------- */
+
+    /* ----------------->> CRÉDITOS EN COLONES <<<------------------- */
+    jQuery( "#credito_colones_calcular" ).click(function(e) {
+      e.preventDefault();
+      var monto = jQuery('#form-field-credito_colones_monto').val()
+      var plazo = jQuery('#form-field-credito_colones_plazo').val();
+      var tasa = jQuery('#form-field-credito_colones_tasa').val();
+      var result = calcularCreditoColones(tasa/1200 , plazo , -monto);
+      console.log(result);
+      jQuery('#credito_colones_resultado_monto').text("₡ " + result.substring(4));
+    });
+
+    jQuery( "#credito_colones_limpiar" ).click(function() {
+      limpiarCreditoColones();
+    });
+
+    function calcularCreditoColones(ir, np, pv) {
+
+      /*
+        * ir   - interest rate per month
+        * np   - number of periods (months)
+        * pv   - present value
+      */
+
+      if(isNaN(ir) || isNaN(np) || isNaN(pv)) {
+        console.log("Contiene letras");
+      } else {
+        if(np >= 3) {
+            var pmt, pvif;
+
+          if (ir === 0) return -(pv)/np;
+          pvif = Math.pow(1 + ir, np);
+          pmt = - ir * pv * (pvif) / (pvif - 1);
+
+          var result = pmt;
+
+          var USD = new Intl.NumberFormat('en-CR',{
+            style: 'currency',
+            currency: 'CRC',
+          });
+
+          return USD.format(result.toFixed(2))
+
+        } else {
+          console.log("El plazo debe ser mayor a 3 meses");
+        }
+      }
+    }
+
+    function limpiarCreditoColones() {
+      jQuery('#form-field-credito_colones_monto').val(0);
+      jQuery('#form-field-credito_colones_plazo').val(0);
+      jQuery('#form-field-credito_colones_tasa').val(0);
+      jQuery('#credito_colones_resultado_monto').text("");
+      jQuery('#credito_colones_resultado_monto').text("₡0.00");
+    }
+    /* ----------------->> FIN CRÉDITOS EN COLONES <<<------------------- */
+
+    /* ----------------->> BANCA EMPRESARIAL Y CORPORATIVA COLONES <<<------------------- */
+    jQuery("#form-field-tipo_sector").change(function() { // Cuando cambie el select del tipo de sector:
+      if(jQuery('#form-field-tipo_sector').val() == 'gestion_ambiental') { //Si es gestión ambiental la que se selecciona
+        jQuery("#form-field-tipo_garantia [value='hipotecaria_casa_habitacion']").attr("disabled", true); // Deshabilita la opción
+      } else { // Si no
+        jQuery("#form-field-tipo_garantia [value='hipotecaria_casa_habitacion']").attr("disabled", false); // Habilita la opción
+      }
+
+      if(jQuery('#form-field-tipo_sector').val() == 'gestion_ambiental' && jQuery("#form-field-tipo_garantia").val() == null) {
+        jQuery('#form-field-tipo_garantia option[value = hipotecaria]').attr('selected','selected');
+      }
+    });
+
+    jQuery( "#bec_colones_calcular" ).click(function(e) {
+      e.preventDefault();
+      if(jQuery('#form-field-tipo_sector').val() == 'x' || jQuery("#form-field-tipo_garantia").val() == 'x') {
+        console.log("verifique los campos");
+      } else {
+
+        var tipo_sector = jQuery('#form-field-tipo_sector').val();
+        var tipo_garantia = jQuery('#form-field-tipo_garantia').val();
+        var monto = jQuery('#form-field-bec_colones_monto').val();
+        var tbp = jQuery('#form-field-bec_colones_tbp').val();
+        var spread = 0;
+        var plazo = 0;
+
+        if(tipo_sector == 'mipymes') {
+          if(tipo_garantia == 'hipotecaria') { plazo = 240; spread = 5.5; }
+          if(tipo_garantia == 'hipotecaria_casa_habitacion') { plazo = 240; spread = 5.0; }
+          if(tipo_garantia == 'prendaria') { plazo = 60; spread = 6.5; }
+          if(tipo_garantia == 'fiduciaria') { plazo = 72; spread = 6.5; }
+        } else if(tipo_sector = 'gestion_ambiental') {
+          if(tipo_garantia == 'hipotecaria') { plazo = 240; spread = 3; }
+          if(tipo_garantia == 'prendaria') { plazo = 60; spread = 3; }
+          if(tipo_garantia == 'fiduciaria') { plazo = 72; spread = 3; }
+        }
+
+        var tasa_final = parseFloat(tbp) + parseFloat(spread);
+
+        var result = calcularBECColones(tasa_final/1200 , plazo , -monto);
+
+        jQuery('#bec_colones_resultado_monto').text("");
+        jQuery('#bec_colones_resultado_monto').text("₡ " + result.substring(4));
+
+        // var monto = jQuery('#form-field-bec_colones_monto').val();
+        // jQuery('#bec_colones_resultado_monto').text("₡" + monto);
+      }
+    });
+
+    jQuery( "#bec_colones_limpiar" ).click(function() {
+      limpiarBECColones();
+    });
+
+    function calcularBECColones(ir, np, pv) {
+
+      if(isNaN(ir) || isNaN(np) || isNaN(pv)) {
+        console.log("Contiene letras");
+      } else {
+        if(np >= 3) {
+            var pmt, pvif;
+
+          if (ir === 0) return -(pv)/np;
+          pvif = Math.pow(1 + ir, np);
+          pmt = - ir * pv * (pvif) / (pvif - 1);
+
+          var result = pmt;
+
+          var USD = new Intl.NumberFormat('en-CR',{
+            style: 'currency',
+            currency: 'CRC',
+          });
+
+          return USD.format(result.toFixed(2))
+
+        } else {
+          console.log("El plazo debe ser mayor a 3 meses");
+        }
+      }
+    }
+
+    function limpiarBECColones() {
+      jQuery('#form-field-tipo_sector option[value = x]').attr('selected','selected');
+      jQuery('#form-field-tipo_garantia option[value = x]').attr('selected','selected');
+      jQuery('#form-field-bec_colones_monto').val(0);
+      jQuery('#bec_colones_resultado_monto').text("₡0.00");
+    }
+    /* ----------------->> BANCA EMPRESARIAL Y CORPORATIVA COLONES <<<------------------- */
+
+    /* ----------------->> BANCA EMPRESARIAL Y CORPORATIVA DÓLARES <<<------------------- */
+
+    jQuery( "#bec_dolares_calcular" ).click(function(e) {
+      e.preventDefault();
+        if(jQuery('#form-field-bec_tipo_sector_dolares').val() == 'x' || jQuery("#form-field-bec_tipo_garantia_dolares").val() == 'x') {
+          console.log("verifique los campos");
+        } else {
+          var tipo_sector = jQuery('#form-field-bec_tipo_sector_dolares').val();
+          var tipo_garantia = jQuery('#form-field-bec_tipo_garantia_dolares').val();
+          var monto = jQuery('#form-field-bec_dolares_monto').val();
+          var tbp = jQuery('#form-field-bec_dolares_tbp').val();
+          var spread = 0;
+          var plazo = 0;
+
+          if(tipo_sector == 'microempresas') {
+            if(tipo_garantia == 'hipotecaria') { plazo = 180; spread = 4.75; }
+            if(tipo_garantia == 'prendaria') { plazo = 60; spread = 4.75; }
+          } else if(tipo_sector = 'pymes') {
+            if(tipo_garantia == 'hipotecaria') { plazo = 180; spread = 4.75; }
+            if(tipo_garantia == 'prendaria') { plazo = 60; spread = 3.75; }
+          }
+
+          var tasa_final = parseFloat(tbp) + parseFloat(spread);
+
+          var result = calcularBECDolares(tasa_final/1200 , plazo , -monto);
+
+          jQuery('#bec_dolares_resultado_monto').text("");
+          jQuery('#bec_dolares_resultado_monto').text(result);
+        }
+    });
+
+    // });
+
+    jQuery( "#bec_dolares_limpiar" ).click(function() {
+      limpiarBECDolares();
+    });
+
+    function calcularBECDolares(ir, np, pv) {
+
+      if(isNaN(ir) || isNaN(np) || isNaN(pv)) {
+        console.log("Contiene letras");
+      } else {
+        if(np >= 3) {
+            var pmt, pvif;
+
+          if (ir === 0) return -(pv)/np;
+          pvif = Math.pow(1 + ir, np);
+          pmt = - ir * pv * (pvif) / (pvif - 1);
+
+          var result = pmt;
+
+          var USD = new Intl.NumberFormat('en-US',{
+            style: 'currency',
+            currency: 'USD',
+          });
+
+          return USD.format(result.toFixed(2))
+
+        } else {
+          console.log("El plazo debe ser mayor a 3 meses");
+        }
+      }
+    }
+
+    function limpiarBECDolares() {
+      jQuery('#form-field-bec_tipo_sector_dolares option[value = x]').attr('selected','selected');
+      jQuery('#form-field-bec_tipo_garantia_dolares option[value = x]').attr('selected','selected');
+      jQuery('#form-field-bec_dolares_monto').val(0);
+      jQuery('#bec_dolares_resultado_monto').text("$0.00");
+    }
+    /* ----------------->> FIN CRÉDITOS EN COLONES <<<------------------- */
+
+  });

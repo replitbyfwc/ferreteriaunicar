@@ -1,0 +1,94 @@
+jQuery( document ).ready(function() {
+  var disabledDays = [0, 6];
+
+  /* Mercado local */
+  /* <<------------------------------------------->> */
+  jQuery('#informe_diario_input').datepicker({
+      language: 'es',
+      autoClose: true, //Se cierra el calendario automáticamente después de haber elegido la fecha
+      dateFormat: 'dd-mm-yyyy', //Formato, se pueden cambiar los '-' por '/'
+      firstDay: 0, // Comienza en domingo
+      maxDate: new Date(), //Solamente se seleccionan las fechas de hoy hacia atrás
+      onRenderCell: function (date, cellType) { //Deshabilitación de los sábados y domingos.
+          if (cellType == 'day') {
+              var day = date.getDay(),
+                  isDisabled = disabledDays.indexOf(day) != -1;
+
+              return {
+                  disabled: isDisabled
+              }
+          }
+      }
+  });
+
+  jQuery('#informe_diario_input').datepicker({
+      onSelect: function(formattedDate, date, inst){
+        const month = (date.getMonth() < 9 ? '0': '') + (date.getMonth() + 1); //Los meses empiezan en 0, se les suma 1.
+        const year = date.getFullYear();
+        window.open('/wp-content/uploads/' + year + '/' + month + '/Boletin-Local-'+ (jQuery("#informe_diario_input").val()) + '.pdf', '_blank');
+        console.log('/wp-content/uploads/' + year + '/' + month + '/Boletin-Local-' + jQuery("#informe_diario_input").val() + '.pdf')
+      }
+    })
+  /* <<------------------------------------------->> */
+
+  /*Hechos relevantes */
+  /* <<------------------------------------------->> */
+  jQuery('#hechos_relevantes_input').datepicker({
+      language: 'es',
+      autoClose: true, //Se cierra el calendario automáticamente después de haber elegido la fecha
+      dateFormat: 'dd-mm-yyyy', //Formato, se pueden cambiar los '-' por '/'
+      firstDay: 0, // Comienza en domingo
+      maxDate: new Date(), //Solamente se seleccionan las fechas de hoy hacia atrás
+      onRenderCell: function (date, cellType) { //Deshabilitación de los sábados y domingos.
+          if (cellType == 'day') {
+              var day = date.getDay(),
+                  isDisabled = disabledDays.indexOf(day) != -1;
+
+              return {
+                  disabled: isDisabled
+              }
+          }
+      }
+  });
+
+  jQuery('#hechos_relevantes_input').datepicker({
+      onSelect: function(formattedDate, date, inst){
+        const month = (date.getMonth() < 9 ? '0': '') + (date.getMonth() + 1); //Los meses empiezan en 0, se les suma 1.
+        const year = date.getFullYear();
+        window.open('/wp-content/uploads/' + year + '/' + month + '/Reporte-de-Hechos-Relevantes-'+ (jQuery("#hechos_relevantes_input").val()) + '.pdf', '_blank');
+        //console.log('https://pxdev3.com/BP2020/wp-content/uploads/' + year + '/' + month + '/Boletin-Local-' + jQuery("#hechos_relevantes_input").val() + '.pdf')
+      }
+    })
+  /* <<------------------------------------------->> */
+
+  /* Mercado internacional: Reporte diario */
+  /* <<------------------------------------------->> */
+  jQuery('#informe_diario_internacional_input').datepicker({
+      language: 'es',
+      autoClose: true, //Se cierra el calendario automáticamente después de haber elegido la fecha
+      dateFormat: 'dd-mm-yyyy', //Formato, se pueden cambiar los '-' por '/'
+      firstDay: 0, // Comienza en domingo
+      maxDate: new Date(), //Solamente se seleccionan las fechas de hoy hacia atrás
+      onRenderCell: function (date, cellType) { //Deshabilitación de los sábados y domingos.
+          if (cellType == 'day') {
+              var day = date.getDay(),
+                  isDisabled = disabledDays.indexOf(day) != -1;
+
+              return {
+                  disabled: isDisabled
+              }
+          }
+      }
+  });
+
+  jQuery('#informe_diario_internacional_input').datepicker({
+      onSelect: function(formattedDate, date, inst){
+        const month = (date.getMonth() < 9 ? '0': '') + (date.getMonth() + 1); //Los meses empiezan en 0, se les suma 1.
+        const year = date.getFullYear();
+        window.open('/wp-content/uploads/' + year + '/' + month + '/Boletin-Internacional-'+ (jQuery("#informe_diario_internacional_input").val()) + '.pdf', '_blank');
+        //console.log('https://pxdev3.com/BP2020/wp-content/uploads/' + year + '/' + month + '/Boletin-Local-' + jQuery("#informe_diario_internacional_input").val() + '.pdf')
+      }
+    })
+  /* <<------------------------------------------->> */
+
+});

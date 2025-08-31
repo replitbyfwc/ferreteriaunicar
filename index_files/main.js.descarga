@@ -1,0 +1,1139 @@
+/**
+ *
+ * Theme General Scripts
+ *
+ * --Slick Sliders
+ * --DROPDOWN
+ * --Hamburger menu
+ * --Top Menu Scroll
+ * --Accordion closed
+ * --Display tabs content
+ * --Formulario de productos
+ * --Modales
+ * --Tabales with modals
+ * --Forms validation
+ *
+ */
+
+const $ = jQuery;
+//Metodo creado para asignar el tipo de cambio
+function asignarTipoCambio(){
+	$.get('https://www.appsbp.com/WsSINPEMovilV2/ServiciosGeneral/indicadoresfinancieros', (respuesta) => {
+		document.getElementById("tipoCambioCompra").innerText = `US$ Compra: ${respuesta["Indicadores"][0].Valor}`;
+		document.getElementById("tipoCambioVenta").innerText = `US$ Venta: ${respuesta["Indicadores"][1].Valor}`;
+	} );
+}
+
+$(document).ready(function(){
+  //Tipo de cambio
+  asignarTipoCambio();
+	
+  // Carousel 5 coulumns
+  $('.slick-carousel-5 .elementor-container').slick({
+    slidesToShow: 5,
+    prevArrow: '<button type="button" class="slick-prev slick-arrow">&#8249;</button>',
+    nextArrow: '<button type="button" class="slick-next slick-arrow">&#8250;</button>',
+    // infinite: false,
+    accessibility: false,
+    responsive:[
+      {
+        breakpoint: 1240,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 360,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+    ]
+  });
+  // Default carousel 4
+  //$('.services-carousel .elementor-row, .productos-carousel .elementor-row').slick({
+  $('.services-carousel .elementor-container, .productos-carousel .elementor-container').slick({
+    slidesToShow: 4,
+    prevArrow: '<button type="button" class="slick-prev slick-arrow">&#8249;</button>',
+    nextArrow: '<button type="button" class="slick-next slick-arrow">&#8250;</button>',
+    accessibility: false,
+    responsive:[
+      {
+        breakpoint: 1240,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      },
+      {
+        breakpoint: 390,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          // arrows: false
+        }
+      },
+    ]
+  });
+  // Carousel not infinite
+  $('.slick-carousel .elementor-container').slick({
+    slidesToShow: 4,
+    prevArrow: '<button type="button" class="slick-prev slick-arrow">&#8249;</button>',
+    nextArrow: '<button type="button" class="slick-next slick-arrow">&#8250;</button>',
+    infinite: false,
+    accessibility: false,
+    responsive:[
+      {
+        breakpoint: 1240,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 360,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+    ]
+  });
+  // Carousel 3 coulumns
+  $('.slick-carousel-3 .elementor-container').slick({
+    slidesToShow: 3,
+    prevArrow: '<button type="button" class="slick-prev slick-arrow">&#8249;</button>',
+    nextArrow: '<button type="button" class="slick-next slick-arrow">&#8250;</button>',
+    infinite: false,
+    accessibility: false,
+    responsive:[
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      },
+      {
+        breakpoint: 360,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+    ]
+  });
+  // Carousel dots and circle arrows
+  $('.megamenu-carousel .elementor-container').slick({
+    slidesToShow: 3,
+    prevArrow: `<button type="button" class="slick-prev slick-arrow">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
+    </svg>
+    </button>`,
+    nextArrow: `<button type="button" class="slick-next slick-arrow">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+    </svg>
+    </button>`,
+    // infinite: false,
+    accessibility: false,
+    slidesToScroll: 3,
+    reponsive: false,
+    dots: true,
+    responsive:[
+      {
+        breakpoint: 1240,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      },
+    ]
+  });
+});
+
+// DROPDOWN
+/*$('#menu-top-menu-online').slideUp();*/
+
+$('.dropdown').on('click', function(e){
+  
+  $(this).toggleClass('active');
+	
+	/*FIX - provoca error en menu*/
+  /*$('#menu-top-menu-online').slideToggle();*/
+
+});
+
+var menu_section = document.getElementById('menu-section');
+
+// Hamburger menu
+$('#hamburger-menu').on('click', function(){
+  button = $(this)[0];
+  button.classList.toggle('active');
+
+  if(button.classList.contains('active')){
+    menu_section.classList.add('show');
+
+  }else{
+    menu_section.classList.remove('show');
+  }
+});
+
+
+/* Top Menu on Scroll */
+var visual_Width = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+var prev_scroll_position = window.pageYOffset;
+var top_sociedad_menu = document.getElementById('sociedad-header');
+if (visual_Width > 1023) {
+  if(top_sociedad_menu){
+    window.onscroll = function(){
+      var current_scroll_position = window.pageYOffset;
+      if(prev_scroll_position > current_scroll_position){
+        top_sociedad_menu.style.top = '150px';
+      }else{
+        top_sociedad_menu.style.top = '0px';
+      }
+      prev_scroll_position = current_scroll_position;
+    }
+  }
+}
+
+/**
+ * Top menu sociedades
+ * --change menu display on resize
+ */
+if (top_sociedad_menu) {
+  document.addEventListener('DOMContentLoaded', submenu_function);
+  window.addEventListener('resize', submenu_function);
+}
+function submenu_function(){
+  //for mobile
+  if(window.innerWidth < 1024){
+    let wrapper = top_sociedad_menu.getElementsByClassName('menu')[0];
+    let total = wrapper.childElementCount;
+
+    for( let i = 0; i < total; i++){
+      let child = wrapper.children[i];
+
+      if(child.classList.contains('menu-item-has-children')){
+        let submenu = child.getElementsByClassName('sub-menu')[0];
+        child.addEventListener('click', function(e){
+          child.classList.toggle('active');
+          if(window.innerWidth < 1024 && child.classList.contains('active')){
+            submenu.style.display = 'block';
+          }
+          if(window.innerWidth < 1024 && !child.classList.contains('active')){
+            submenu.style.display = 'none';
+          }
+        });
+      }
+    }
+  }else{
+    // for desktop
+    let wrapper = top_sociedad_menu.getElementsByClassName('menu')[0];
+    let total = wrapper.childElementCount;
+
+    for(let i = 0; i < total; i++){
+      let child = wrapper.children[i];
+
+      if(child.classList.contains('menu-item-has-children')){
+        let submenu = child.getElementsByClassName('sub-menu')[0];
+
+        child.addEventListener('mouseenter', function(){
+          if (window.innerWidth > 1024) {
+            submenu.style.display = 'flex';
+          }
+        });
+        child.addEventListener('mouseleave', function(){
+          if (window.innerWidth > 1024) {
+            submenu.style.display = 'none';
+          }
+        });
+      }
+    }
+  }
+}
+
+/**
+ * Elementor accordion closed at start
+ */
+$(document).ready(function($) {
+  var delay = 500;
+  setTimeout(function() {
+    $('.accordion-closed .elementor-tab-title').removeClass('elementor-active');
+    $('.accordion-closed .elementor-tab-content').css('display', 'none'); }, delay);
+});
+
+
+/**
+ * Display tabs content for all rows
+ * For orange buttons
+ */
+// get all the columns container
+var tabs_panels = document.querySelectorAll('.tabs-panels-orange .elementor-container');
+if(tabs_panels.length != 0){
+
+  // the top and bottom waves
+  let waves = document.querySelectorAll('.wave');
+  let form_section = document.getElementById('form-section');
+  /**
+   * Collect the buttons that have the attribute "mostrar"
+   * Collect the sections with ID same as "mostrar" attribute
+   */
+  let tabs_buttons = [];
+  let tabs_tetent = [];
+
+  tabs_panels.forEach(tab_panel => {
+    let total = tab_panel.childElementCount;
+    for(let i = 0; i < total; i++){
+      // get the column
+      let tab = tab_panel.children[i];
+      // get the button inside the column
+      let button = tab.getElementsByClassName('elementor-widget-button')[0];
+      if (button) {
+        // get the container related to "mostrar" attribute
+        let container = $('#' + button.getAttribute('mostrar'));
+        // if the container exists, colect the button and the container
+        if (container[0]) {
+          tabs_content.push(container[0]);
+          tabs_buttons.push(button);
+        }
+
+      }
+    }
+  });
+
+  // get the default text content from the buttons
+  let old_button_text = tabs_buttons[0].textContent;
+
+  // Change the buttons styles
+  for(let i = 0; i < tabs_buttons.length; i++){
+    tabs_buttons[i].addEventListener('click', function(e){
+      // relate the buttons with the tabs content
+      e.preventDefault();
+      let target = e.target;
+      let anchor = '#' + tabs_buttons[i].getAttribute('mostrar');
+      let container = $(anchor)[0];
+
+      tabs_buttons.forEach(tab_button =>{
+        // get the button anchor
+        let link = tab_button.getElementsByClassName('elementor-button-link')[0];
+        if(target.closest('.elementor-widget-button') == tab_button && !tab_button.classList.contains('elementor-button-info') ){
+          // if the button is orange
+          tab_button.classList.add('elementor-button-info');
+          link.textContent = 'VER MENOS';
+        }else{
+          // change to the old state
+          tab_button.classList.remove('elementor-button-info');
+          link.textContent = old_button_text;
+        }
+      });
+
+      // Display content
+      tabs_content.forEach(tab =>{
+
+        // content inside panels content
+        let sub_buttons = [];
+        let sub_tabs_content = [];
+
+        // if the active container equals to a tab content, show it
+        if(tab == container && container.classList.contains('contenido-oculto')){
+          tab.classList.remove('contenido-oculto');
+
+            /**
+             * Sub tabs
+             */
+            // get the columns container from the tab content
+            let sub_tabs = container.querySelectorAll('.subtabs-panels .elementor-container');
+            // if there are columns inside
+            if (sub_tabs.length != 0) {
+              sub_tabs.forEach(sub_tab_panel => {
+                let sub_total = sub_tab_panel.childElementCount;
+                for(let j = 0; j < sub_total; j++){
+                  // the sub column
+                  let sub_tab = sub_tab_panel.children[j];
+                  let sub_button = sub_tab.getElementsByClassName('elementor-widget-button')[0];
+                  // if sub button exists
+                  if(sub_button){
+                    let sub_container = $('#' + sub_button.getAttribute('mostrar'));
+                    if (sub_container) {
+                      sub_tabs_content.push(sub_container[0]);
+                      sub_buttons.push(sub_button);
+                    }
+                  }
+                }
+              });
+
+              // text from the buttons inside the tab content
+              let old_subbutton_text = sub_buttons[0].textContent;
+
+              for(let j = 0; j < sub_buttons.length; j++){
+                sub_buttons[j].addEventListener('click', function(e){
+                  e.preventDefault();
+                  let sub_target = e.target;
+                  let sub_anchor = '#' + sub_buttons[j].getAttribute('mostrar');
+                  let sub_content = $(sub_anchor)[0];
+
+                  sub_buttons.forEach(sub_tab_button =>{
+                      // get the anchor
+                      let sub_link = sub_tab_button.getElementsByClassName('elementor-button-link')[0];
+                      if(sub_target.closest('.elementor-widget-button') == sub_tab_button && sub_tab_button.classList.contains('elementor-button-info')){
+                        // if the button is purple
+                        sub_tab_button.classList.remove('elementor-button-info');
+                        sub_link.textContent = 'VER MENOS';
+                      }else{
+                        // change to the old state
+                        sub_tab_button.classList.add('elementor-button-info');
+                        sub_link.textContent = old_subbutton_text;
+                    }
+                  });
+
+                  // if the active sub_content equals to the sub_tab
+                  sub_tabs_content.forEach(sub_tab =>{
+                    if(sub_tab == sub_content && sub_content.classList.contains('contenido-oculto')){
+                      sub_tab.classList.remove('contenido-oculto');
+                    }else{
+                      sub_tab.classList.add('contenido-oculto');
+                    }
+                  });
+
+                  // Form display
+                  if(form_section && sub_tabs_content[j].classList.contains('contenido-oculto')){
+                    form_section.classList.add('contenido-oculto');
+                  }else{
+                    form_section.classList.remove('contenido-oculto');
+                  }
+
+                });
+              }
+            }
+            /* //Sub tabs */
+
+        }else{
+          tab.classList.add('contenido-oculto');
+          console.log('!')
+        }
+
+      });
+
+      if(waves.length != 0){
+        waves.forEach(wave => {
+          if(tabs_content.every(displayWaves)){
+            wave.classList.add('contenido-oculto');
+          }else{
+            wave.classList.remove('contenido-oculto');
+          }
+        });
+      }
+
+    });
+
+    function displayWaves(container){
+      return container.classList.contains('contenido-oculto');
+    }
+
+  }
+
+}
+
+/**
+ * Display tabs content for all rows
+ * For purple buttons
+ * Same as teh code above, but purple buttons 🙃
+ */
+var tabs_panels = document.querySelectorAll('.tabs-panels .elementor-container');
+if(tabs_panels.length != 0){
+
+  let waves = document.querySelectorAll('.wave');
+  let form_section = document.getElementById('form-section');
+  let tabs_buttons = [];
+  let tabs_content = [];
+
+  tabs_panels.forEach(tab_panel => {
+    let total = tab_panel.childElementCount;
+    for(let i = 0; i < total; i++){
+      let tab = tab_panel.children[i];
+      let button = tab.getElementsByClassName('elementor-widget-button')[0];
+      if (button) {
+        let container = $('#' + button.getAttribute('mostrar'));
+        if (container[0]) {
+          tabs_content.push(container[0]);
+          tabs_buttons.push(button);
+        }
+      }
+
+    }
+  });
+
+  let old_button_text = '';
+  if (tabs_buttons[0]) {
+    old_button_text = tabs_buttons[0].textContent;
+  }
+
+  for(let i = 0; i < tabs_buttons.length; i++){
+    if (tabs_buttons[i]) {
+
+      tabs_buttons[i].addEventListener('click', function(e){
+        e.preventDefault();
+        let target = e.target;
+        let anchor = '#' + tabs_buttons[i].getAttribute('mostrar');
+        let container = $(anchor)[0];
+
+        tabs_buttons.forEach(tab_button =>{
+          let link = tab_button.getElementsByClassName('elementor-button-link')[0];
+          // console.log(link);
+            if(target.closest('.elementor-widget-button') == tab_button && tab_button.classList.contains('elementor-button-info') ){
+              tab_button.classList.remove('elementor-button-info');
+              if (link) {
+                link.textContent = 'VER MENOS';
+              }
+            }else{
+              tab_button.classList.add('elementor-button-info');
+              link.textContent = old_button_text;
+            }
+        });
+
+
+
+        tabs_content.forEach(tab =>{
+
+          let sub_buttons = [];
+          let sub_tabs_content = [];
+          if(tab == container && container.classList.contains('contenido-oculto')){
+            tab.classList.remove('contenido-oculto');
+
+              /**
+               * Sub tabs
+               */
+              let sub_tabs = container.querySelectorAll('.subtabs-panels .elementor-container');
+              if (sub_tabs.length != 0) {
+
+                sub_tabs.forEach(sub_tab_panel => {
+                  let sub_total = sub_tab_panel.childElementCount;
+                  for(let j = 0; j < sub_total; j++){
+                    let sub_tab = sub_tab_panel.children[j];
+                    let sub_button = sub_tab.getElementsByClassName('elementor-widget-button')[0];
+                    let sub_container = $('#' + sub_button.getAttribute('mostrar'));
+
+                    if(sub_container[0]){
+                      sub_tabs_content.push(sub_container[0]);
+                      sub_buttons.push(sub_button);
+                    }
+                  }
+                });
+
+                let old_subbutton_text = sub_buttons[0].textContent;
+                for(let j = 0; j < sub_buttons.length; j++){
+                  sub_buttons[j].addEventListener('click', function(e){
+                    e.preventDefault();
+                    let sub_target = e.target;
+                    let sub_anchor = '#' + sub_buttons[j].getAttribute('mostrar');
+                    let sub_content = $(sub_anchor)[0];
+
+
+                    sub_buttons.forEach(sub_tab_button =>{
+                        let sub_link = sub_tab_button.getElementsByClassName('elementor-button-link')[0];
+                        if(sub_link){
+                          if(sub_target.closest('.elementor-widget-button') == sub_tab_button && !sub_tab_button.classList.contains('elementor-button-info')){
+                            sub_tab_button.classList.add('elementor-button-info');
+                            if(sub_link){
+                              sub_link.textContent = 'VER MENOS';
+                            }
+                          }else{
+                            sub_tab_button.classList.remove('elementor-button-info');
+                            sub_link.textContent = old_subbutton_text;
+                          }
+                        }
+                    });
+
+                    sub_tabs_content.forEach(sub_tab =>{
+                      if(sub_tab == sub_content && sub_content.classList.contains('contenido-oculto')){
+                        // console.log('!');
+                        sub_tab.classList.remove('contenido-oculto');
+
+                      }else{
+                        // console.log('~~');
+                        sub_tab.classList.add('contenido-oculto');
+                      }
+                    });
+
+                    // Form display
+                    if(form_section){
+                      if(sub_tabs_content[j].classList.contains('contenido-oculto')){
+                        form_section.classList.add('contenido-oculto');
+                      }else{
+                        form_section.classList.remove('contenido-oculto');
+                      }
+                    }
+                  });
+                }
+              }
+          }else{
+            tab.classList.add('contenido-oculto');
+          }
+        });
+
+        if(waves.length != 0){
+          waves.forEach(wave => {
+            if(tabs_content.every(displayWaves)){
+              wave.classList.add('contenido-oculto');
+            }else{
+              wave.classList.remove('contenido-oculto');
+            }
+          });
+        }
+
+      });
+    }
+
+
+    function displayWaves(container){
+      return container.classList.contains('contenido-oculto');
+    }
+
+  }
+
+}
+
+/**
+ * Formularios de productos en Popular Seguros
+ */
+document.addEventListener('DOMContentLoaded', function(){
+  var form_productos = document.getElementById('form-productos');
+  if(form_productos ){
+    let seguros_inputs = form_productos.querySelectorAll('input');
+
+    let inputs_seguro = [];
+    let boxes_seguro =  [];
+
+    let placeholder = 'Valor del bien';
+
+    seguros_inputs.forEach(element =>{
+      if( element.getAttribute('type') == 'number' && element.getAttribute('name') != 'form_fields[id_num]'){
+        inputs_seguro.push(element);
+        element.placeholder = placeholder;
+        element.setAttribute('disabled', 'disabled');
+        element.setAttribute('data-icon', 'currency');
+      }else if( element.getAttribute('type') == 'checkbox' && element.getAttribute('name') != 'form_fields[accept]'){
+        boxes_seguro.push(element);
+      }else if(element.getAttribute('name') === 'form_fields[hr]'){
+        element.setAttribute('disabled', 'disabled');
+      }
+    });
+
+
+    for(let i = 0; i < boxes_seguro.length; i++){
+        boxes_seguro[i].addEventListener('click', function(){
+        if (boxes_seguro[i].checked == true) {
+          inputs_seguro[i].removeAttribute('disabled');
+          inputs_seguro[i].required = true;
+        }else{
+          inputs_seguro[i].setAttribute('disabled', 'disabled');
+          inputs_seguro[i].required = false;
+          inputs_seguro[i].value = '';
+          inputs_seguro[i].placeholder = placeholder;
+        }
+      });
+    }
+
+
+  }
+});
+
+
+/* MODALS */
+// open
+$(document).ready(function(){
+  var modal_buttons = document.querySelectorAll('[bp-toggle]');
+
+  modal_buttons.forEach(modal_button => {
+    modal_button.addEventListener('click', function(){
+      let target = modal_button.getAttribute('bp-target');
+      if (target){
+        let target_modal = $(`#${target}`)[0];
+        target_modal.classList.add('show');
+      }
+    });
+  });
+  // close
+  var modals = document.querySelectorAll('.bp-modal');
+  $('[bp-dismiss="bp-modal"]').on('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    modals.forEach(modal => {
+      modal.classList.remove('show');
+      modal.addEventListener('click', function(e){
+        let target = e.target;
+        if(target && target == modal){
+          modal.classList.remove('show');
+        }
+      });
+    });
+  });
+});
+
+// tables
+var table_files = document.getElementById('eael-data-table-f4cd734');
+
+if (table_files) {
+  let body = table_files.getElementsByTagName('tbody')[0];
+  let rows = body.childElementCount;
+
+  for(let i = 0; i < rows; i++){
+    let children = body.children[i];
+    let nm_td = children.children[0];
+    let vw_td = children.children[1];
+    let dw_td = children.children[2];
+
+    let name = nm_td.querySelector('.td-content').textContent.trim();
+    let view_link = vw_td.getElementsByTagName('a')[0];
+    let download_link = dw_td.getElementsByTagName('a')[0];
+
+    view_link.setAttribute('target', '_blank');
+    download_link.setAttribute('download', `${name}`);
+  }
+
+}
+
+var table_links = document.querySelectorAll('.descarga-pdf');
+
+if (table_links.length != 0) {
+  table_links.forEach(table => {
+    let body = table.getElementsByTagName('tbody')[0];
+    let rows = body.childElementCount;
+
+    for(let i = 0; i < rows; i++){
+      let children = body.children[i];
+      let nm_td = children.children[0];
+      let vw_td = children.children[1];
+      let dw_td = children.children[2];
+
+      let name = nm_td.textContent.trim();
+      if(vw_td){
+        let view_link = vw_td.getElementsByTagName('a')[0];
+        if(view_link){
+          view_link.setAttribute('target', '_blank');
+        }
+      }
+
+      if (dw_td) {
+        let download_link = dw_td.getElementsByTagName('a')[0];
+        if(download_link){
+          download_link.setAttribute('download', `${name}`);
+        }
+      }
+    }
+
+  });
+}
+
+var table_links_3 = document.querySelectorAll('.descarga-pdf-3');
+
+if (table_links_3.length != 0) {
+  table_links_3.forEach(table => {
+    let body = table.getElementsByTagName('tbody')[0];
+    let rows = body.childElementCount;
+
+    for(let i = 0; i < rows; i++){
+      let children = body.children[i];
+      let nm_td = children.children[0];
+      let vw_td = children.children[2];
+      let dw_td = children.children[3];
+
+      let name = nm_td.querySelector('.td-content').textContent.trim();
+      let view_link = vw_td.getElementsByTagName('a')[0];
+      let download_link = dw_td.getElementsByTagName('a')[0];
+
+      view_link.setAttribute('target', '_blank');
+      download_link.setAttribute('download', `${name}`);
+    }
+
+  });
+}
+
+// TABLES WITH MODALS
+var table_modal_ofertas = document.getElementById('eael-data-table-7d96282');
+
+if(table_modal_ofertas){
+
+  let body = table_modal_ofertas.getElementsByTagName('tbody')[0];
+  let rows = body.childElementCount;
+
+  for(let i = 0; i < rows; i++){
+    let children = body.children[i];
+    let modal_td = children.children[4];
+
+    modal_td = modal_td.querySelector('.td-content');
+
+    modal_td.setAttribute('bp-toggle', 'bp-modal');
+    modal_td.setAttribute('bp-target', `modal_${i+1}`);
+  }
+}
+
+var table_modal_ofertas = document.getElementById('eael-data-table-5d8f1a6');
+
+if(table_modal_ofertas){
+
+  let body = table_modal_ofertas.getElementsByTagName('tbody')[0];
+  let rows = body.childElementCount;
+
+  for(let i = 0; i < rows; i++){
+    let children = body.children[i];
+    let modal_td = children.children[2];
+
+    modal_td = modal_td.querySelector('.td-content');
+
+    modal_td.setAttribute('bp-toggle', 'bp-modal');
+    modal_td.setAttribute('bp-target', `modal_${i+1}`);
+
+  }
+}
+var table_modal_ofertas = document.getElementById('tabla-gerencia');
+
+if(table_modal_ofertas){
+
+  let body = table_modal_ofertas.getElementsByTagName('tbody')[0];
+  let rows = body.childElementCount;
+
+  for(let i = 0; i < rows; i++){
+    let children = body.children[i];
+    let modal_td = children.children[2];
+
+    modal_td = modal_td.querySelector('.td-content');
+
+    modal_td.setAttribute('bp-toggle', 'bp-modal');
+    modal_td.setAttribute('bp-target', `modal_${i+7}`);
+
+  }
+}
+var table_modal_ofertas = document.getElementById('tabla-inversion');
+
+if(table_modal_ofertas){
+
+  let body = table_modal_ofertas.getElementsByTagName('tbody')[0];
+  let rows = body.childElementCount;
+
+  for(let i = 0; i < rows; i++){
+    let children = body.children[i];
+    let modal_td = children.children[2];
+
+    modal_td = modal_td.querySelector('.td-content');
+
+    modal_td.setAttribute('bp-toggle', 'bp-modal');
+    modal_td.setAttribute('bp-target', `modal_${i+10}`);
+
+  }
+}
+var table_modal_ofertas = document.getElementById('tabla-financiera');
+
+if(table_modal_ofertas){
+
+  let body = table_modal_ofertas.getElementsByTagName('tbody')[0];
+  let rows = body.childElementCount;
+
+  for(let i = 0; i < rows; i++){
+    let children = body.children[i];
+    let modal_td = children.children[2];
+
+    modal_td = modal_td.querySelector('.td-content');
+
+    modal_td.setAttribute('bp-toggle', 'bp-modal');
+    modal_td.setAttribute('bp-target', `modal_${i+16}`);
+
+  }
+}
+var table_modal_ofertas = document.getElementById('tabla-no-financiera');
+
+if(table_modal_ofertas){
+
+  let body = table_modal_ofertas.getElementsByTagName('tbody')[0];
+  let rows = body.childElementCount;
+
+  for(let i = 0; i < rows; i++){
+    let children = body.children[i];
+    let modal_td = children.children[2];
+
+    modal_td = modal_td.querySelector('.td-content');
+
+    modal_td.setAttribute('bp-toggle', 'bp-modal');
+    modal_td.setAttribute('bp-target', `modal_${i+17}`);
+
+  }
+}
+
+// FORM VALIDATIONS
+var tel_inputs = document.querySelectorAll('[type="tel"]');
+var tel_inputs_2 = document.querySelectorAll('[type="tel_2"]');
+var id_inputs = document.querySelectorAll('[name="form_fields[id_num]"]');
+var id_inputs_2 = document.querySelectorAll('[name="form_fields[id_num_2]"]');
+var id_inputs_3 = document.querySelectorAll('[name="form_fields[id_num_3]"]');
+
+$(document).on('ready', function(){
+  tel_inputs.forEach(tel_input => {
+    tel_input.setAttribute('maxlength', '8');
+  });
+  tel_inputs_2.forEach(tel_input_2 => {
+    tel_input_2.setAttribute('maxlength', '8');
+  });
+
+  id_inputs.forEach(id_input => {
+
+    id_input.setAttribute('pattern', '[0-9]{9}');
+    id_input.setAttribute('size', '1');
+    id_input.setAttribute('maxlength', '9');
+    id_input.setAttribute('max', '999999999');
+  });
+
+  id_inputs_2.forEach(id_input_2 => {
+
+    id_input_2.setAttribute('pattern', '[0-9]{9}');
+    id_input_2.setAttribute('size', '1');
+    id_input_2.setAttribute('maxlength', '9');
+    id_input_2.setAttribute('max', '999999999');
+  });
+
+  id_inputs_3.forEach(id_input_3 => {
+
+    id_input_3.setAttribute('pattern', '[0-9]{9}');
+    id_input_3.setAttribute('size', '1');
+    id_input_3.setAttribute('maxlength', '9');
+    id_input_3.setAttribute('max', '999999999');
+  });
+})
+
+var form_locations = document.querySelectorAll('.form-locations');
+
+form_locations.forEach(form_location => {
+  // let form = form_location.getElementsByTagName('form')[0];
+  let residencia = $('[name="form_fields[residencia]"]');
+  let provincia = $('[name="form_fields[canton]"]');
+
+  console.log(residencia);
+
+
+  residencia.on('change', function(){
+    let selection = $(this)[0].selectedIndex;
+
+    switch (selection) {
+        // Default
+        case 0:
+          provincia.empty().append(`
+            <option value="">Cantón de residencia</option>
+          `);
+          break;
+        // San José
+        case 1:
+            provincia.empty().append(`
+                <option value="San José">San José</option>
+                <option value="Acosta">Acosta</option>
+                <option value="Alajuelita">Alajuelita</option>
+                <option value="Aserrí">Aserrí</option>
+                <option value="Curridabat">Curridabat</option>
+                <option value="Desamparados">Desamparados</option>
+                <option value="Dota">Dota</option>
+                <option value="Escazú">Escazú</option>
+                <option value="Goicoechea">Goicoechea</option>
+                <option value="León Cortés">León Cortés</option>
+                <option value="Montes de Oca">Montes de Oca</option>
+                <option value="Mora">Mora</option>
+                <option value="Moravia">Moravia</option>
+                <option value="Peréz Zeledón">Peréz Zeledón</option>
+                <option value="Puriscal">Puriscal</option>
+                <option value="Santa Ana">Santa Ana</option>
+                <option value="Tarrazú">Tarrazú</option>
+                <option value="Tibás">Tibás</option>
+                <option value="Turrubares">Turrubares</option>
+                <option value="Vázquez de Coronado">Vázquez de Coronado</option>
+            `);
+            break;
+        // Alajuela
+        case 2:
+            provincia.empty().append(`
+                <option value="Alajuela">Alajuela</option>
+                <option value="San Ramón">San Ramón</option>
+                <option value="Greacia">Greacia</option>
+                <option value="San Mateo">San Mateo</option>
+                <option value="Atenas">Atenas</option>
+                <option value="Naranjo">Naranjo</option>
+                <option value="Palmares">Palmares</option>
+                <option value="Poás">Poás</option>
+                <option value="Orotina">Orotina</option>
+                <option value="San Carlos">San Carlos</option>
+                <option value="Zarcero">Zarcero</option>
+                <option value="Sarchí">Sarchí</option>
+                <option value="Upala">Upala</option>
+                <option value="Los Chiles">Los Chiles</option>
+                <option value="Guatuso">Guatuso</option>
+                <option value="Río Cuarto">Río Cuarto</option>
+            `);
+            break;
+        // Cartago
+        case 3:
+            provincia.empty().append(`
+                <option value="Cartago">Cartago</option>
+                <option value="Paraíso">Paraíso</option>
+                <option value="La Unión">La Unión</option>
+                <option value="Jiménez">Jiménez</option>
+                <option value="Turrialba">Turrialba</option>
+                <option value="Alvarado">Alvarado</option>
+                <option value="Oreamuno">Oreamuno</option>
+                <option value="El Guarco">El Guarco</option>
+            `);
+            break;
+        // Heredia
+        case 4:
+            provincia.empty().append(`
+                <option value="Heredia">Heredia</option>
+                <option value="Barva">Barva</option>
+                <option value="Santo Domingo">Santo Domingo</option>
+                <option value="Santa Bárbara">Santa Bárbara</option>
+                <option value="San Rafael">San Rafael</option>
+                <option value="San Isidro">San Isidro</option>
+                <option value="Belén">Belén</option>
+                <option value="Flores">Flores</option>
+                <option value="San Pablo">San Pablo</option>
+                <option value="Sarapiquí">Sarapiquí</option>
+            `);
+            break;
+        // Guanacaste
+        case 5:
+            provincia.empty().append(`
+                <option value="Nicoya">Nicoya</option>
+                <option value="Cantón de Abangares">Cantón de Abangares</option>
+                <option value="Cantón de Bagaces">Cantón de Bagaces</option>
+                <option value="Cantón de Cañas">Cantón de Cañas</option>
+                <option value="Cantón de Carrillo">Cantón de Carrillo</option>
+                <option value="Cantón de Hojancha">Cantón de Hojancha</option>
+                <option value="Cantón de La Cruz">Cantón de La Cruz</option>
+                <option value="Cantón de Liberia">Cantón de Liberia</option>
+                <option value="Cantón de Nandayure">Cantón de Nandayure</option>
+                <option value="Cantón de Santa Cruz">Cantón de Santa Cruz</option>
+                <option value="Tilarán">Tilarán</option>
+            `);
+            break;
+        // Puntarenas
+        case 6:
+            provincia.empty().append(`
+                <option value="Puntarenas">Puntarenas</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Corredores">Corredores</option>
+                <option value="Coto Bruss">Coto Brus</option>
+                <option value="Esparza">Esparza</option>
+                <option value="Garabito">Garabito</option>
+                <option value="Golfito">Golfito</option>
+                <option value="Montes de Oro">Montes de Oro</option>
+                <option value="Osa">Osa</option>
+                <option value="Parrita">Parrita</option>
+                <option value="Quepos">Quepos</option>
+            `);
+            break;
+        // Linmón
+        case 7:
+            provincia.empty().append(`
+                <option value="Limón">Limón</option>
+                <option value="Guácimo">Guácimo</option>
+                <option value="Matina">Matina</option>
+                <option value="Pococí">Pococí</option>
+                <option value="Siquirres">Siquirres</option>
+                <option value="Talamanca">Talamanca</option>
+            `);
+            break;
+
+        default:
+            break;
+    }
+  });
+
+});
+
+// Footer menu on mobile
+var footer_menus = document.querySelectorAll('.footer-menu');
+
+if(footer_menus){
+  footer_menus.forEach(footer_menu => {
+    let title = footer_menu.getElementsByClassName('title')[0]
+    let content = footer_menu.getElementsByTagName('div')[0]
+
+    $(content).slideUp();
+    $(title).on('click', function(){
+      $(content).slideToggle();
+      title.classList.toggle('active')
+    });
+  });
+}

@@ -1,0 +1,130 @@
+
+if( $('#bp-advanced-search') ){
+    let select_deseo = $('#select-deseo');
+    let select_para = $('#select-para');
+    let keywords = $('#keywords');
+
+    select_deseo.on('change', function(){
+        let selection = $(this)[0].selectedIndex;
+        
+        switch (selection) {
+            // credito
+            case 0:
+                select_para.empty().append(`
+                    <option value="casa">comprar una vivienda</option>
+                    <option value="vehículo">comprar mi vehículo</option>
+                    <option value="deudas">refundir mis deudas</option>
+                    <option value="educación">financiar mi educacion</option>
+                    <option value="médico">financiar mis gastos médicos</option>
+                    <option value="ambiente">proyectos amigables con el ambiente</option>
+                    <option value="soluciones">mis soluciones personales</option>
+                    <option value="vacaciones">financiar mis vacaciones</option>
+                    <option value="negocio">apoyar mi negocio o emprendimiento</option>
+                `);
+                break;
+            // ahorro
+            case 1:
+                select_para.empty().append(`
+                    <option value="propósitos">cumplir mis propósitos</option>
+                    <option value="dinero">hacer crecer mi dinero</option>
+                    <option value="hijos">enseñarle a ahorrar a mis hijos</option>
+                    <option value="negocio">rentabilizar el flujo de mi negocio</option>
+                    <option value="plazo">invertir a plazo</option>
+                    <option value="pensión">invertir en mi pensión</option>
+                    <option value="fondos">invertir en fondos de inversión</option>
+                `);
+                break;
+            // tarjeta
+            case 2:
+                select_para.empty().append(`
+                    <option value="cajeros">comprar o retirar en cajeros</option>
+                    <option value="recursos">administrar los recursos de mi negocio</option>
+                    <option value="fondos">adelantar fondos</option>
+                `);
+                break;
+            // deposito
+            case 3:
+                select_para.empty().append(`
+                    <option value="beneficios">obtener los beneficios</option>
+                `);
+                break;
+            // seguro
+            case 4:
+                select_para.empty().append(`
+                    <option value="familia">proteger mi salud y la de mi familia</option>
+                    <option value="bienes">proteger mis bienes / viajes</option>
+                    <option value="empresa">proteger mi empresa</option>
+                `);
+                break;
+            // banca digital
+            case 5:
+                select_para.empty().append(`
+                    <option value="transacciones">transacciones desde cualquier lugar</option>
+                `);
+                break;
+            // ubicaciones
+            case 6:
+                select_para.empty().append(`
+                    <option value="oficina">visitar una oficina del banco</option>
+                `);
+                break;
+        
+            default:
+                break;
+        }
+
+        
+        keywords.val(select_deseo.val() + ' ' + select_para.val() );
+    });
+    
+    select_para.on('change', function(){
+        keywords.val(select_deseo.val() + ' ' + select_para.val());
+    });
+    
+    keywords.val(select_deseo.val() + ' ' + select_para.val() );
+
+}
+
+$(document).ready(function(){
+    $("#submit-advanced-search").on('click', function(e){
+        e.preventDefault();
+
+        // $('#bp-advanced-search')[0].reset();
+        // $('#bp-advanced-search').prop('selectedIndex',1);
+        let keywords = $("#keywords").val();
+        let bp_deseo__text = $("#select-deseo option:selected").text();
+        let bp_deseo__key = $('#select-deseo').val();
+        let bp_para__text = $("#select-para option:selected").text();
+        let bp_para__key = $('#select-para').val();
+
+        
+        $('#bp-advanced-search').slideUp();
+        $('#bp-results').slideUp();
+
+        $.ajax({
+            type:"POST",
+            url: "./wp-admin/admin-ajax.php",
+            data: {
+                action:'bp_advanced_search',
+                bp_deseo__text: bp_deseo__text,
+                bp_deseo__key: bp_deseo__key,
+                bp_para__text: bp_para__text,
+                bp_para__key: bp_para__key,
+                keywords: keywords,
+            },
+            success:function(data){
+                $('#bp-results').html(data);
+                $('#bp-results').slideDown();
+            }
+        });
+    });
+
+});
+
+function bp_show_advaced_search(event){
+    event.preventDefault();
+    
+    $('#bp-advanced-search').slideDown();
+    // $('#bp-results').empty();
+    $('#bp-results').slideUp();
+}

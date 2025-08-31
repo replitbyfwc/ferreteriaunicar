@@ -1,0 +1,724 @@
+//Pensiones ---> Estructura Organica
+//
+// jQuery('div.btn-oculta').addClass( "ver_mas" );
+// jQuery(document).on('click', 'div.btn-oculta .elementor-button-link', function (event) {
+//     if (jQuery(".ver_mas")[0]){
+//       jQuery('div.btn-oculta').addClass( "conocer" );
+//       jQuery('div.btn-oculta').removeClass( "ver_mas" );
+//       event.preventDefault();
+//       jQuery('.contenido-oculto').slideToggle();
+//     }else {
+//       jQuery('div.btn-oculta').addClass( "ver_mas" );
+//       jQuery('div.btn-oculta').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-oculto').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-juridico').addClass( "mas-jur" );
+// jQuery(document).on('click', 'div.btn-juridico .elementor-button-link', function (event) {
+//     if (jQuery(".mas-jur")[0]){
+//       jQuery('div.btn-juridico').addClass( "conocer" );
+//       jQuery('div.btn-juridico').removeClass( "mas-jur" );
+//       event.preventDefault();
+//       jQuery('.contenido-juridico').slideToggle();
+//     }else {
+//       jQuery('div.btn-juridico').addClass( "mas-jur" );
+//       jQuery('div.btn-juridico').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-juridico').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-inversion').addClass( "mas-inv" );
+// jQuery(document).on('click', 'div.btn-inversion .elementor-button-link', function (event) {
+//     if (jQuery(".mas-inv")[0]){
+//       jQuery('div.btn-inversion').addClass( "conocer" );
+//       jQuery('div.btn-inversion').removeClass( "mas-inv" );
+//       event.preventDefault();
+//       jQuery('.contenido-inversiones').slideToggle();
+//     }else {
+//       jQuery('div.btn-inversion').addClass( "mas-inv" );
+//       jQuery('div.btn-inversion').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-inversiones').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-gerencial').addClass( "mas-ger" );
+// jQuery(document).on('click', 'div.btn-gerencial .elementor-button-link', function (event) {
+//     if (jQuery(".mas-ger")[0]){
+//       jQuery('div.btn-gerencial').addClass( "conocer" );
+//       jQuery('div.btn-gerencial').removeClass( "mas-ger" );
+//       event.preventDefault();
+//       jQuery('.contenido-gerencial').slideToggle();
+//     }else {
+//       jQuery('div.btn-gerencial').addClass( "mas-ger" );
+//       jQuery('div.btn-gerencial').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-gerencial').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-junta').addClass( "mas-junt" );
+// jQuery(document).on('click', 'div.btn-junta .elementor-button-link', function (event) {
+//     if (jQuery(".mas-junt")[0]){
+//       jQuery('div.btn-junta').addClass( "conocer" );
+//       jQuery('div.btn-junta').removeClass( "mas-junt" );
+//       event.preventDefault();
+//       jQuery('.contenido-directiva').slideToggle();
+//     }else {
+//       jQuery('div.btn-junta').addClass( "mas-junt" );
+//       jQuery('div.btn-junta').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-directiva').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-nominacion').addClass( "mas-nomi" );
+// jQuery(document).on('click', 'div.btn-nominacion .elementor-button-link', function (event) {
+//     if (jQuery(".mas-nomi")[0]){
+//       jQuery('div.btn-nominacion').addClass( "conocer" );
+//       jQuery('div.btn-nominacion').removeClass( "mas-nomi" );
+//       event.preventDefault();
+//       jQuery('.contenido-nominacion').slideToggle();
+//     }else {
+//       jQuery('div.btn-nominacion').addClass( "mas-nomi" );
+//       jQuery('div.btn-nominacion').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-nominacion').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-tecno').addClass( "mas-tecno" );
+// jQuery(document).on('click', 'div.btn-tecno .elementor-button-link', function (event) {
+//     if (jQuery(".mas-tecno")[0]){
+//       jQuery('div.btn-tecno').addClass( "conocer" );
+//       jQuery('div.btn-tecno').removeClass( "mas-tecno" );
+//       event.preventDefault();
+//       jQuery('.contenido-tecno').slideToggle();
+//     }else {
+//       jQuery('div.btn-tecno').addClass( "mas-tecno" );
+//       jQuery('div.btn-tecno').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-tecno').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-auditoria').addClass( "mas-auditoria" );
+// jQuery(document).on('click', 'div.btn-auditoria .elementor-button-link', function (event) {
+//     if (jQuery(".mas-auditoria")[0]){
+//       jQuery('div.btn-auditoria').addClass( "conocer" );
+//       jQuery('div.btn-auditoria').removeClass( "mas-auditoria" );
+//       event.preventDefault();
+//       jQuery('.contenido-auditoria').slideToggle();
+//     }else {
+//       jQuery('div.btn-auditoria').addClass( "mas-auditoria" );
+//       jQuery('div.btn-auditoria').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-auditoria').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-presupuesto').addClass( "mas-presupuesto" );
+// jQuery(document).on('click', 'div.btn-presupuesto .elementor-button-link', function (event) {
+//     if (jQuery(".mas-presupuesto")[0]){
+//       jQuery('div.btn-presupuesto').addClass( "conocer" );
+//       jQuery('div.btn-presupuesto').removeClass( "mas-presupuesto" );
+//       event.preventDefault();
+//       jQuery('.contenido-presupuesto').slideToggle();
+//     }else {
+//       jQuery('div.btn-presupuesto').addClass( "mas-presupuesto" );
+//       jQuery('div.btn-presupuesto').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-presupuesto').slideToggle();
+//     }
+// });
+//
+//
+//
+// //OCULTA EL CONTENIDO DE LOS BOTONES ESTRUCTURA
+// jQuery(document).on('click', 'div.btn-oculta .elementor-button-link', function (event) {
+//     jQuery(".contenido-juridico").slideUp();
+//     jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-inversiones").slideUp();
+//     jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-gerencial").slideUp();
+//     jQuery('div.btn-jungerencialta .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-directiva").slideUp();
+//     jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-nominacion").slideUp();
+//     jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-tecno").slideUp();
+//     jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-auditoria").slideUp();
+//     jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-presupuesto").slideUp();
+//     jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-oculta .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-juridico .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversion").slideUp();
+//   jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-gerencial").slideUp();
+//   jQuery('div.btn-jungerencialta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-directiva").slideUp();
+//   jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-nominacion").slideUp();
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-tecno").slideUp();
+//   jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-auditoria").slideUp();
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-presupuesto").slideUp();
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-inversion .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-juridico .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-juridico").slideUp();
+//   jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-inversion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-gerencial").slideUp();
+//   jQuery('div.btn-jungerencialta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-inversion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-directiva").slideUp();
+//   jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-inversion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-nominacion").slideUp();
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-inversion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-tecno").slideUp();
+//   jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-inversion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-auditoria").slideUp();
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-inversion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-presupuesto").slideUp();
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-inversion .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-gerencial .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-juridico").slideUp();
+//   jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversiones").slideUp();
+//   jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-directiva").slideUp();
+//   jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-nominacion").slideUp();
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-tecno").slideUp();
+//   jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-auditoria").slideUp();
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-presupuesto").slideUp();
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-junta .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-juridico").slideUp();
+//   jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversiones").slideUp();
+//   jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-gerencial").slideUp();
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-nominacion").slideUp();
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-tecno").slideUp();
+//   jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-auditoria").slideUp();
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-presupuesto").slideUp();
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-junta .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-nominacion .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-juridico").slideUp();
+//   jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversiones").slideUp();
+//   jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-gerencial").slideUp();
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-directiva").slideUp();
+//   jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-tecno").slideUp();
+//   jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-auditoria").slideUp();
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-presupuesto").slideUp();
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "VER MENOS" );
+// });
+//
+//
+// jQuery(document).on('click', 'div.btn-tecno .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-juridico").slideUp();
+//   jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversiones").slideUp();
+//   jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-gerencial").slideUp();
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-directiva").slideUp();
+//   jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-nominacion").slideUp();
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-auditoria").slideUp();
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-presupuesto").slideUp();
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-tecno .elementor-button-link').html( "VER MENOS" );
+// });
+//
+//
+// jQuery(document).on('click', 'div.btn-auditoria .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-juridico").slideUp();
+//   jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversiones").slideUp();
+//   jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-gerencial").slideUp();
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-directiva").slideUp();
+//   jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-nominacion").slideUp();
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-tecno").slideUp();
+//   jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-presupuesto").slideUp();
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-presupuesto .elementor-button-link', function (event) {
+//   jQuery(".contenido-oculto").slideUp();
+//   jQuery('div.btn-oculta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversiones").slideUp();
+//   jQuery('div.btn-juridico .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-inversion").slideUp();
+//   jQuery('div.btn-inversion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-gerencial").slideUp();
+//   jQuery('div.btn-gerencial .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-directiva").slideUp();
+//   jQuery('div.btn-junta .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-nominacion").slideUp();
+//   jQuery('div.btn-nominacion .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-tecno").slideUp();
+//   jQuery('div.btn-tecno .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+//
+//   jQuery(".contenido-auditoria").slideUp();
+//   jQuery('div.btn-auditoria .elementor-button-link').html( "CONOCER" );
+//   jQuery('div.btn-presupuesto .elementor-button-link').html( "VER MENOS" );
+// });
+
+///////////////////////////////////////////////////////////////////////////
+
+// jQuery(document).on('click', 'div.btn-presupuesto .elementor-button-link', function (event) {
+//     event.preventDefault();
+//     jQuery('.contenido-presupuesto').slideToggle();
+// });
+
+// Valores ---> Responsabilidad social
+// jQuery('div.btn-politica').addClass( "mas-politica" );
+// jQuery(document).on('click', 'div.btn-politica .elementor-button-link', function (event) {
+//     if (jQuery(".mas-politica")[0]){
+//       jQuery('div.btn-politica').addClass( "conocer" );
+//       jQuery('div.btn-politica').removeClass( "mas-politica" );
+//       event.preventDefault();
+//       jQuery('.contenido-politica').slideToggle();
+//     }else {
+//       jQuery('div.btn-politica').addClass( "mas-politica" );
+//       jQuery('div.btn-politica').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-politica').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-ambiental').addClass( "mas-ambiental" );
+// jQuery(document).on('click', 'div.btn-ambiental .elementor-button-link', function (event) {
+//     if (jQuery(".mas-ambiental")[0]){
+//       jQuery('div.btn-ambiental').addClass( "conocer" );
+//       jQuery('div.btn-ambiental').removeClass( "mas-ambiental" );
+//       event.preventDefault();
+//       jQuery('.contenido-ambiental').slideToggle();
+//     }else {
+//       jQuery('div.btn-ambiental').addClass( "mas-ambiental" );
+//       jQuery('div.btn-ambiental').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-ambiental').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-reporte1').addClass( "mas-reporte1" );
+// jQuery(document).on('click', 'div.btn-reporte1 .elementor-button-link', function (event) {
+//     if (jQuery(".mas-reporte1")[0]){
+//       jQuery('div.btn-reporte1').addClass( "conocer" );
+//       jQuery('div.btn-reporte1').removeClass( "mas-reporte1" );
+//       event.preventDefault();
+//       jQuery('.contenido-reporte1').slideToggle();
+//     }else {
+//       jQuery('div.btn-reporte1').addClass( "mas-reporte1" );
+//       jQuery('div.btn-reporte1').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-reporte1').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-inv2').addClass( "mas-inv2" );
+// jQuery(document).on('click', 'div.btn-inv2 .elementor-button-link', function (event) {
+//     if (jQuery(".mas-inv2")[0]){
+//       jQuery('div.btn-inv2').addClass( "conocer" );
+//       jQuery('div.btn-inv2').removeClass( "mas-inv2" );
+//       event.preventDefault();
+//       jQuery('.contenido-inv2').slideToggle();
+//     }else {
+//       jQuery('div.btn-inv2').addClass( "mas-inv2" );
+//       jQuery('div.btn-inv2').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-inv2').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-sost').addClass( "mas-sost" );
+// jQuery(document).on('click', 'div.btn-sost .elementor-button-link', function (event) {
+//     if (jQuery(".mas-sost")[0]){
+//       jQuery('div.btn-sost').addClass( "conocer" );
+//       jQuery('div.btn-sost').removeClass( "mas-sost" );
+//       event.preventDefault();
+//       jQuery('.contenido-sost').slideToggle();
+//     }else {
+//       jQuery('div.btn-sost').addClass( "mas-reporte1" );
+//       jQuery('div.btn-sost').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-sost').slideToggle();
+//     }
+// });
+//
+//
+// //OCULTA EL CONTENIDO DE LOS BOTONES
+// jQuery(document).on('click', 'div.btn-ambiental .elementor-button-link', function (event) {
+//     jQuery(".contenido-politica").slideUp();
+//     jQuery('div.btn-politica .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-reporte1").slideUp();
+//     jQuery('div.btn-reporte1 .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-inv2").slideUp();
+//     jQuery('div.btn-inv2 .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-sost").slideUp();
+//     jQuery('div.btn-sost .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-politica .elementor-button-link', function (event) {
+//     jQuery(".contenido-ambiental").slideUp();
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-politica .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-reporte1").slideUp();
+//     jQuery('div.btn-reporte1 .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-politica .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-inv2").slideUp();
+//     jQuery('div.btn-inv2 .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-politica .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-sost").slideUp();
+//     jQuery('div.btn-sost .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-politica .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-reporte1 .elementor-button-link', function (event) {
+//     jQuery(".contenido-ambiental").slideUp();
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-reporte1 .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-politica").slideUp();
+//     jQuery('div.btn-politica .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-reporte1 .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-inv2").slideUp();
+//     jQuery('div.btn-inv2 .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-reporte1 .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-sost").slideUp();
+//     jQuery('div.btn-sost .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-reporte1 .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-inv2 .elementor-button-link', function (event) {
+//     jQuery(".contenido-ambiental").slideUp();
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-inv2 .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-politica").slideUp();
+//     jQuery('div.btn-politica .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-inv2 .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-reporte1").slideUp();
+//     jQuery('div.btn-reporte1 .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-inv2 .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-sost").slideUp();
+//     jQuery('div.btn-sost .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-inv2 .elementor-button-link').html( "VER MENOS" );
+// });
+//
+// jQuery(document).on('click', 'div.btn-sost .elementor-button-link', function (event) {
+//     jQuery(".contenido-ambiental").slideUp();
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-sost .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-politica").slideUp();
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-sost .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-reporte1").slideUp();
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-sost .elementor-button-link').html( "VER MENOS" );
+//
+//     jQuery(".contenido-inv2").slideUp();
+//     jQuery('div.btn-ambiental .elementor-button-link').html( "CONOCER" );
+//     jQuery('div.btn-sost .elementor-button-link').html( "VER MENOS" );
+// });
+
+///////////////////////////////////////////////////////////////////////////
+//
+//
+// //POPULAR SEGUROS TRAMITES CONTRALORIA
+//
+//
+// jQuery('div.btn-encuesta').addClass( "mas-encuesta" );
+// jQuery(document).on('click', 'div.btn-encuesta .elementor-button-link', function (event) {
+//     if (jQuery(".mas-encuesta")[0]){
+//       jQuery('div.btn-encuesta').addClass( "conocer" );
+//       jQuery('div.btn-encuesta').removeClass( "mas-encuesta" );
+//       event.preventDefault();
+//       jQuery('.contenido-encuesta').slideToggle();
+//     }else {
+//       jQuery('div.btn-encuesta').addClass( "mas-encuesta" );
+//       jQuery('div.btn-encuesta').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-encuesta').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-denuncia').addClass( "mas-denuncia" );
+// jQuery(document).on('click', 'div.btn-denuncia .elementor-button-link', function (event) {
+//     if (jQuery(".mas-denuncia")[0]){
+//       jQuery('div.btn-denuncia').addClass( "conocer" );
+//       jQuery('div.btn-denuncia').removeClass( "mas-denuncia" );
+//       event.preventDefault();
+//       jQuery('.contenido-denuncia').slideToggle();
+//     }else {
+//       jQuery('div.btn-denuncia').addClass( "mas-denuncia" );
+//       jQuery('div.btn-denuncia').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-denuncia').slideToggle();
+//     }
+// });
+//
+// jQuery(document).on('click', 'div.btn-denuncia .elementor-button-link', function (event) {
+//     jQuery(".contenido-encuesta").slideUp();
+//     jQuery('div.btn-encuesta .elementor-button-link').html( "CONOCER MÁS" );
+//     jQuery('div.btn-denuncia .elementor-button-link').html( "VER MENOS" );
+//
+//
+// });
+//
+// jQuery(document).on('click', 'div.btn-encuesta .elementor-button-link', function (event) {
+//     jQuery(".contenido-denuncia").slideUp();
+//     jQuery('div.btn-denuncia .elementor-button-link').html( "CONOCER MÁS" );
+//     jQuery('div.btn-encuesta .elementor-button-link').html( "VER MENOS" );
+//
+//
+// });
+//
+//
+// //POPULAR SEGUROS Preguntas frecuentes
+//
+//
+// jQuery('div.btn-con-poli').addClass( "mas-con-poli" );
+// jQuery(document).on('click', 'div.btn-con-poli .elementor-button-link', function (event) {
+//     if (jQuery(".mas-con-poli")[0]){
+//       jQuery('div.btn-con-poli').addClass( "conocer" );
+//       jQuery('div.btn-con-poli').removeClass( "mas-con-poli" );
+//       event.preventDefault();
+//       jQuery('.contenido-con-poli').slideToggle();
+//     }else {
+//       jQuery('div.btn-con-poli').addClass( "mas-con-poli" );
+//       jQuery('div.btn-con-poli').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-con-poli').slideToggle();
+//     }
+// });
+//
+// jQuery('div.btn-con-generales').addClass( "mas-con-generales" );
+// jQuery(document).on('click', 'div.btn-con-generales .elementor-button-link', function (event) {
+//     if (jQuery(".mas-con-generales")[0]){
+//       jQuery('div.btn-con-generales').addClass( "conocer" );
+//       jQuery('div.btn-con-generales').removeClass( "mas-con-generales" );
+//       event.preventDefault();
+//       jQuery('.contenido-con-generales').slideToggle();
+//     }else {
+//       jQuery('div.btn-con-generales').addClass( "mas-con-generales" );
+//       jQuery('div.btn-con-generales').removeClass( "conocer" );
+//       event.preventDefault();
+//       jQuery('.contenido-con-generales').slideToggle();
+//     }
+// });
+//
+// jQuery(document).on('click', 'div.btn-con-generales .elementor-button-link', function (event) {
+//     jQuery(".contenido-con-poli").slideUp();
+//     jQuery('div.btn-con-poli .elementor-button-link').html( "CONOCER MÁS" );
+//     jQuery('div.btn-con-generales .elementor-button-link').html( "VER MENOS" );
+//
+//
+// });
+//
+// jQuery(document).on('click', 'div.btn-con-poli .elementor-button-link', function (event) {
+//     jQuery(".contenido-con-generales").slideUp();
+//     jQuery('div.btn-con-generales .elementor-button-link').html( "CONOCER MÁS" );
+//     jQuery('div.btn-con-poli .elementor-button-link').html( "VER MENOS" );
+//
+//
+// });
